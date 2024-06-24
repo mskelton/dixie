@@ -6,6 +6,8 @@ export declare class Container {
   bind(...services: Service[]): void
   /** Get a service from the IOC container. */
   get<T>(name: string): T
+  /** Get a service from the IOC container by, */
+  get<T extends Service>(service: T): T
 }
 
 /** Inject a dependency with the given service name to the class property. */
@@ -17,4 +19,4 @@ export declare const inject: (
  * Marks a class as injectable. Without this decorator, the dependencies will
  * not be resolved.
  */
-export declare const injectable: (name: string) => (target: any) => any
+export declare const injectable: (name?: string) => (target: any) => any

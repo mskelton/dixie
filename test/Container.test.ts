@@ -53,6 +53,26 @@ test("should re-use constructed instances", () => {
   expect(barCount).toBe(1)
 })
 
+test("auto service naming", () => {
+  const container = new Container()
+
+  @injectable()
+  class Foo {
+    type = "foo"
+  }
+
+  @injectable()
+  class Bar {
+    type = "bar"
+  }
+
+  container.bind(Foo)
+  container.bind(Bar)
+
+  expect(container.get(Foo).type).toBe("foo")
+  expect(container.get(Bar).type).toBe("bar")
+})
+
 describe("properties", () => {
   test("supports dependencies", () => {
     const container = new Container()
