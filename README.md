@@ -51,7 +51,7 @@ import { Container, inject, injectable } from "tidi"
 
 const container = new Container()
 
-@injectable("userService")
+@injectable("loggingService")
 class LoggingService {}
 
 @injectable("userService")
